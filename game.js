@@ -6,6 +6,7 @@ var t = 0;
 var currentTurn = 1;
 var turnNames = ["none", "X", "O"];
 var dataArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+var index = null;
 
 // Whos Turn is it
 function whosTurn() {
@@ -23,11 +24,9 @@ function whosTurn() {
         str = 'O';
         currentTurn = 2;
     }
-    if (t == 8) {
-        alert('ITS A TIE')
-    }
     var currentTurnContainer = document.getElementById('currentTurn');
     currentTurnContainer.innerHTML = "Player " + str + " turn";
+    console.log('turn', t);
     t++;
 }
 // //  When a Square is selected
@@ -38,9 +37,9 @@ function buttonClickHandler(e) {
     // e.target is the html element, the button that was clicked
     // set the html of the button to the current turn ( X or O )
     // use the id to set the index of the data array to the current turn's value
-    console.log(e.target.id.split('-')[1]);
+    console.log('box number', e.target.id.split('-')[1]);
     e.target.innerHTML = turnNames[currentTurn];
-    var index = e.target.id.split('-')[1];
+    index = e.target.id.split('-')[1];
     dataArray[index] = currentTurn;
     this.removeEventListener('click', buttonClickHandler);
     whosTurn();
@@ -48,56 +47,16 @@ function buttonClickHandler(e) {
 
 };
 
-function restartButton(){
-    dataArray = [0];
+function restartButton() {
+    dataArray = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    t = 0;
+    currentTurn = 1;
+    index = null;
+    k = 0;
     init();
     console.log('restartbutton')
 }
 
-function winCheck() {
-    // call checkValues 8 times
-    // if any of the calls return a 1 or 2, there is a win
-    var a = checkValues(0, 1, 2);
-    if (a) {
-        alert('Winner Player ' + a);
-        return;
-    }
-    var b = checkValues(0, 4, 8);
-    if (b) {
-        alert('Winner Player ' + b);
-        return;
-    }
-    var c = checkValues(0, 3, 6);
-    if (c) {
-        alert('Winner Player ' + c);
-        return;
-    }
-    var d = checkValues(1, 4, 7);
-    if (d) {
-        alert('Winner Player ' + d);
-        return;
-    }
-    var e = checkValues(2, 4, 6);
-    if (e) {
-        alert('Winner Player ' + e);
-        return;
-    }
-    var f = checkValues(3, 4, 5);
-    if (f) {
-        alert('Winner Player ' + f);
-        return;
-    }
-    var g = checkValues(6, 7, 8);
-    if (g) {
-        alert('Winner Player ' + g);
-        return;
-    }
-    var h = checkValues(2, 5, 8);
-    if (h) {
-        alert('Winner Player ' + h);
-        return;
-    }
-}
 
 // pass in three indexes of the data array to check
 function checkValues(a, b, c) {
@@ -123,4 +82,62 @@ function checkValues(a, b, c) {
     // return 0 if no win,
     // return 1 if == 3
     // return 2 if == 6
+}
+function winCheck() {
+    // call checkValues 8 times
+    // if any of the calls return a 1 or 2, there is a win
+    var playerSum;
+    playerSum = checkValues(0, 1, 2);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        return;
+
+    }
+    playerSum = checkValues(0, 4, 8);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        init();
+        return;
+    }
+    var playerSum = checkValues(0, 3, 6);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        nit();
+        return;
+    }
+    var playerSum = checkValues(1, 4, 7);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        nit();
+        return;
+    }
+    var playerSum = checkValues(2, 4, 6);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        nit();
+        return;
+    }
+    var playerSum = checkValues(3, 4, 5);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        nit();
+        return;
+    }
+    var playerSum = checkValues(6, 7, 8);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        nit();
+        return;
+    }
+    var playerSum = checkValues(2, 5, 8);
+    if (playerSum) {
+        alert('Winner Player ' + playerSum);
+        nit();
+        return;
+    }
+    if (t == 8) {
+        alert('ITS A TIE');
+        nit();
+        return;
+    }
 }

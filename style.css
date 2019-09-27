@@ -1,3 +1,63 @@
-html {
+html body {
     background: blue;
 }
+
+.col-4 {
+    /* justify-content: center; */
+    color:black;
+    /* min-height: 40px;
+    min-width:  40px; */
+    border: 2px solid white;
+}
+
+.header {
+    font-size: 30px;
+    margin-bottom: 50px;
+    color: white;
+    text-align: center;
+    justify-content: auto;
+}
+
+.row {
+    
+    /* justify-content: center; */
+   
+}
+
+.X {
+    font-size: 80px;
+    justify-content: center;
+    /* color: white; */
+    /* margin-left: 10px; */
+    min-width: 210px;
+    min-height: 153px;
+    padding: 0;
+    background: blue;
+    border: none;
+    
+}
+
+.turn {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.restart {
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: black;
+    /* text-align: center;
+    justify-content: center; */
+    border: 2px solid black;
+    background: white;
+}
+
+.board {
+    /* min-width: 500px;
+    min-height: 500px; */
+}
+
